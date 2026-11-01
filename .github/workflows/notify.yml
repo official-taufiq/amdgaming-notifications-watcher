@@ -1,9 +1,9 @@
-name: Check AMD Gaming Notifications
+name: Check AMD Gaming & Promotions
 
 on:
   schedule:
-    - cron: '*/10 * * * *'  # Runs every 10 minutes
-  workflow_dispatch:        # Allows manual trigger button in Actions tab
+    - cron: '*/5 * * * *'  # 5 minutes is the lowest possible on GitHub Actions
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -21,7 +21,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install requests
+        run: pip install requests beautifulsoup4
 
       - name: Run watcher script
         env:
